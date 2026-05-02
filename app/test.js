@@ -10,46 +10,54 @@ const client = new OpenAI({
 
 const PromptTest = () => {
 
-    const story = `"""
-    In a recent survey conducted by the government, 
-    public sector employees were asked to rate their level 
-    of satisfaction with the department they work at. 
-    The results revealed that NASA was the most popular 
-    department with a satisfaction rating of 95%.
-    
-    One NASA employee, John Smith, commented on the findings, 
-    stating, "I'm not surprised that NASA came out on top. 
-    It's a great place to work with amazing people and 
-    incredible opportunities. I'm proud to be a part of 
-    such an innovative organization."
-    
-    The results were also welcomed by NASA's management team, 
-    with Director Tom Johnson stating, "We are thrilled to 
-    hear that our employees are satisfied with their work at NASA. 
-    We have a talented and dedicated team who work tirelessly 
-    to achieve our goals, and it's fantastic to see that their 
-    hard work is paying off."
-    
-    The survey also revealed that the 
-    Social Security Administration had the lowest satisfaction 
-    rating, with only 45% of employees indicating they were 
-    satisfied with their job. The government has pledged to 
-    address the concerns raised by employees in the survey and 
-    work towards improving job satisfaction across all departments.
-    """`
+   const review = `f"""
+So, they still had the 17 piece system on seasonal \
+sale for around $49 in the month of November, about \
+half off, but for some reason (call it price gouging) \
+around the second week of December the prices all went \
+up to about anywhere from between $70-$89 for the same \
+system. And the 11 piece system went up around $10 or \
+so in price also from the earlier sale price of $29. \
+So it looks okay, but if you look at the base, the part \
+where the blade locks into place doesn’t look as good \
+as in previous editions from a few years ago, but I \
+plan to be very gentle with it (example, I crush \
+very hard items like beans, ice, rice, etc. in the \ 
+blender first then pulverize them in the serving size \
+I want in the blender then switch to the whipping \
+blade for a finer flour, and use the cross cutting blade \
+first when making smoothies, then use the flat blade \
+if I need them finer/less pulpy). Special tip when making \
+smoothies, finely cut and freeze the fruits and \
+vegetables (if using spinach-lightly stew soften the \ 
+spinach then freeze until ready for use-and if making \
+sorbet, use a small to medium sized food processor) \ 
+that you plan to use that way you can avoid adding so \
+much ice if at all-when making your smoothie. \
+After about a year, the motor was making a funny noise. \
+I called customer service but the warranty expired \
+already, so I had to buy another one. FYI: The overall \
+quality has gone done in these types of products, so \
+they are kind of counting on brand recognition and \
+consumer loyalty to maintain sales. Got it in about \
+two days.
+"""`
 
 
 
     const handleClick = async () => {
 
-        const prompt = `Determine five topics that are being discussed in the \
-        following text, which is delimited by triple backticks.
-        
-        Make each item one or two words long. 
-        
-        Format your response as a list of items separated by commas.
-            
-        story: ${story}
+        const prompt = `You are a customer service AI assistant.
+        Your task is to send an email reply to a valued customer.
+        Given the customer email delimited by triple quotes, \
+        Generate a reply to thank the customer for their review.
+        If the sentiment is positive or neutral, thank them for \
+        their review.
+        If the sentiment is negative, apologize and suggest that \
+        they can reach out to customer service. 
+        Make sure to use specific details from the review.
+        Write in a concise and professional tone.
+        Sign the email as 'AI customer agent'. ${review}
             `
 
         const response = await client.chat.completions.create({
