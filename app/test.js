@@ -1,7 +1,6 @@
 'use client'
 
 import OpenAI from "openai";
-import { useState } from "react"
 
 const client = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY, dangerouslyAllowBrowser: true
@@ -60,16 +59,16 @@ two days.
         Sign the email as 'AI customer agent'. ${review}
             `
 
-        const response = await client.chat.completions.create({
-            model: "gpt-4.1",
-            messages: [
-                {
-                    role: "user",
-                    content: prompt,
-                    temperature: 0, // this is the degree of randomness of the model's output
-                }
-            ]
-        });
+            const response = await client.chat.completions.create({
+                model: "gpt-4.1",
+                messages: [
+                    {
+                        role: "user",
+                        content: prompt,
+                    }
+                ],
+                temperature: 0
+            });
 
 
         console.log(response.choices[0].message.content);

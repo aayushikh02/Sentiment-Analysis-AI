@@ -10,12 +10,18 @@
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",
+    "@langchain/core": "^1.1.47",
+    "@langchain/openai": "^1.4.6",
+    "@langchain/tavily": "^1.2.0",
+    "deepagents": "^1.10.2",
+    "langchain": "^1.4.1",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/react": "19.2.14",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4"
